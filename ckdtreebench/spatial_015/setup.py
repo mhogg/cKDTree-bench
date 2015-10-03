@@ -4,14 +4,10 @@ from __future__ import division, print_function, absolute_import
 
 from os.path import join
 
-
 def configuration(parent_package='', top_path=None):
     from numpy.distutils.misc_util import Configuration
-    
-    config = Configuration('spatial_015', parent_package, top_path)
-
-    config.add_extension('ckdtree', sources=['ckdtree.c'])
-
+    config = Configuration('ckdtree', parent_package, top_path)
+    config.add_extension('', sources=['ckdtree.c'])
     return config
 
 if __name__ == '__main__':

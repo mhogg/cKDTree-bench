@@ -2,7 +2,7 @@
 # Additional contributions by Patrick Varilly and Sturla Molden
 # Released under the scipy license
 import numpy as np
-import scipy.sparse
+#import scipy.sparse
 
 cimport numpy as np
 cimport libc.stdlib as stdlib
@@ -197,6 +197,7 @@ cdef inline np.float64_t dabs(np.float64_t x):
     else:
         return -x
         
+'''
 # Utility for building a coo matrix incrementally
 cdef class coo_entries:
     cdef:
@@ -232,7 +233,7 @@ cdef class coo_entries:
         self.j_data[k] = j
         self.v_data[k] = v
         self.n += 1
-
+        
     def to_matrix(coo_entries self, shape=None):
         # Shrink arrays to size
         self.i.resize(self.n)
@@ -244,6 +245,7 @@ cdef class coo_entries:
         self.n_max = self.n
         return scipy.sparse.coo_matrix((self.v, (self.i, self.j)),
                                        shape=shape)
+'''
 
 
 # Measuring distances
@@ -1944,7 +1946,8 @@ cdef class cKDTree:
                 return results[0]
         elif len(np.shape(r))==1:
             return results
-
+            
+    '''
     # ----------------------
     # sparse_distance_matrix
     # ----------------------
@@ -2087,3 +2090,4 @@ cdef class cKDTree:
                                                tracker)
         
         return results.to_matrix(shape=(self.n, other.n)).todok()
+    '''

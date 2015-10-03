@@ -7,7 +7,7 @@
 # distutils: language = c++
 
 import numpy as np
-import scipy.sparse
+#import scipy.sparse
 
 cimport numpy as np
     
@@ -118,7 +118,7 @@ cdef inline int list_append(list results, np.intp_t i) except -1:
     return 0
 
         
-        
+'''        
 # Utility for building a coo matrix incrementally
 cdef class coo_entries:
     cdef:
@@ -168,6 +168,7 @@ cdef class coo_entries:
         self.n_max = self.n
         return scipy.sparse.coo_matrix((self.v, (self.i, self.j)),
                                        shape=shape)
+'''
 
 
 # Interval arithmetic
@@ -2075,6 +2076,7 @@ cdef public class cKDTree [object ckdtree, type ckdtree_type]:
         else:
             return results
 
+    '''
     # ----------------------
     # sparse_distance_matrix
     # ----------------------
@@ -2260,4 +2262,4 @@ cdef public class cKDTree [object ckdtree, type ckdtree_type]:
         self.tree._indices = self.indices
         self.tree.level = 0
         self.tree._setup() 
-
+    '''
